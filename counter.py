@@ -1,0 +1,22 @@
+import re, tokenizer as tk
+Rapunzel="Once upon a time, in a land far, far away, there lived a young girl named Rapunzel. She was known throughout the kingdom for her long, golden hair, which flowed like a waterfall down the tall tower she lived in. Rapunzel’s story began many years ago when she was just a baby. Her parents, the king and queen, were filled with joy when she was born. But one day, a lonely and selfish witch appeared. She took the child away and named her Rapunzel after the plant her mother had once enjoyed eating. The witch feared losing Rapunzel and wanted her all to herself. The witch raised Rapunzel in a tall tower deep in the forest. The tower had no door and no stairs, only a single window at the very top. Whenever the witch wanted to visit, she would stand below and call out, “Rapunzel, Rapunzel, let down your hair!” Rapunzel would lower her long, golden hair, and the witch would climb up. As the years passed, Rapunzel grew into a kind and gentle young woman. She was isolated from the world and had never seen another human besides the witch. Still, she filled her days with joy. She read books, painted pictures, and sang songs that echoed through the forest. Forest animals often visited her, and she named them all—Whiskers the rabbit, Feather the bluebird, and Fluffy the squirrel. They were her closest friends. In a neighboring kingdom lived a brave and kind-hearted prince. He had heard whispers of a girl with magical golden hair locked away in a tower. Curious and hopeful, he set out to find her. One day, while riding through the forest on his white horse, he heard a sweet, beautiful song floating through the trees. The voice pulled him closer and closer until he stood beneath Rapunzel’s tower. Rapunzel had never seen a prince before. When she looked down and saw him, her heart fluttered with excitement. Her golden hair tumbled from the window like a shining rope. The prince was amazed—not only by her beauty, but by the warmth in her voice. “Who are you?” he called. “I’m Rapunzel,” she replied. “I’ve lived in this tower for as long as I can remember. Who are you, and why have you come here?” The prince introduced himself and told her about the stories he had heard. Rapunzel felt both nervous and happy. Talking to someone new made her feel brave for the first time. Day after day, the prince returned. They shared stories, laughed, and dreamed of the world beyond the tower. The prince loved Rapunzel’s kindness, her songs, and the hopeful way she spoke about life. Before long, they realized they cared deeply for one another. Together, they made a plan to escape. Each visit, the prince brought a piece of silk, and Rapunzel carefully wove them into a ladder. But one day, Rapunzel made a mistake. Without thinking, she said to the witch, “Why are you so much heavier to pull up than the prince?” The witch’s eyes flashed with anger. Furious and afraid of losing Rapunzel, she cut off Rapunzel’s long hair and sent her far away to live alone in the wild. That evening, when the prince came to visit, the witch lowered Rapunzel’s cut hair from the tower. When he climbed up, he was shocked to see the witch instead of Rapunzel. Startled, he fell from the tower into a bed of sharp thorns. The thorns scratched his eyes, and he became blind. Heartbroken, the prince wandered the land for years, calling Rapunzel’s name but never finding her. One day, as he walked through a distant forest, he heard a familiar song. It was Rapunzel! She had survived on her own, never giving up hope. The prince followed the sound of her voice until they stood face to face once more. Rapunzel recognized him instantly and cried tears of joy. As her tears touched his eyes, a miracle happened—his sight was restored.mTogether, Rapunzel and the prince returned to his kingdom. They lived happily ever after, far away from the wicked witch. Their love was celebrated for generations, and their story was told again and again. And now, my dear child, it’s time to close your eyes and drift into dreamland, where your own adventures await. Goodnight, and may your dreams be as magical as Rapunzel’s story."
+
+
+def count_next_tokens(tokens):
+
+  counts = {}
+  for i in range(len(tokens) - 2):
+    bigram = tokens[i] + ' ' + tokens[i + 1]
+    next_token = tokens[i + 2]
+
+    
+    if bigram not in counts:
+      counts[bigram] = {}
+    counts[bigram][next_token] = counts[bigram].get(next_token, 0) + 1
+
+  return counts
+
+tokens = tk.tokenize(Rapunzel.lower())
+counts = count_next_tokens(tokens)
+
+print(counts['once upon'])
