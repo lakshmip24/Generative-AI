@@ -92,5 +92,30 @@ love learning AI
 N-grams help language models understand the relationship between words.
 
 ---
+# 3. Counting (Frequency Dictionary)
+
+Once we create *N-grams*, the next step is to count how often each pattern appears.
+
+> *Prediction is based on counting.*
+
+For example, if the bigram *"the cat"* is followed by:
+
+- *sat* → 12 times
+- *ran* → 5 times
+- *slept* → 3 times
+
+The model predicts *"sat"* because it appears most frequently.
+
+### Frequency Dictionary
+
+A *frequency dictionary* stores:
+
+- An *N-gram (context)* as the key.
+- All possible *next tokens* as values.
+- The *frequency* of each next token.
+
+The model uses this information to determine the most likely next word.
+
+---
 
 ⭐ This repository will continue to grow as I learn more about **Generative AI**, **Large Language Models (LLMs)**, **Transformers**, **Embeddings**, **RAG**, **Fine-tuning**, and much more.
